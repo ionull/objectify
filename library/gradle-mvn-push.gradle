@@ -1,6 +1,9 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
+group = GROUP
+version = VERSION_NAME
+
 def isReleaseBuild() {
     return VERSION_NAME.contains("SNAPSHOT") == false
 }
