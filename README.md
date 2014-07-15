@@ -4,7 +4,10 @@ objectify
 Android Object Preference Loader
 
 * Dependence:
-	>compile 'bz.tsung.android:objectify:1.0.0'
+
+	```gradle
+	compile 'bz.tsung.android:objectify:1.0.0'
+	```
 	
 * Usage:
 	1. Save
