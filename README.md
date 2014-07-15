@@ -12,7 +12,7 @@ Android Object Preference Loader
 		>new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).save(model);
 	2. Load
 	
-		>Model model = new ObjectPreferenceLoader<Model>(context, keyOrPreference, Model.class).load();
+		>Model model = new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).load();
 	3. List
 	
 		>ArrayList<Model> models = new ObjectPreferenceLoader<ArrayList<Model>>(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
