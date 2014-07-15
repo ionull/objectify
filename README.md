@@ -9,13 +9,19 @@ Android Object Preference Loader
 * Usage:
 	1. Save
 	
-		`new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).save(model);`
+		```java
+		new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).save(model);
+		```
 	2. Load
 
-		`Model model = new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).load();`
+		```java
+		Model model = new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).load();
+		```
 	3. List
 	
-		`ArrayList<Model> models = new ObjectPreferenceLoader<ArrayList<Model>>(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();`
+		```java
+		ArrayList<Model> models = new ObjectPreferenceLoader<ArrayList<Model>>(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
+		```
 		
 * Developer:
 	Tsung Wu(@ionull) <tsung.bz@gmail.com>
