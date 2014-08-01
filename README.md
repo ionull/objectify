@@ -25,7 +25,7 @@ Android Object Preference Loader
 		```java
 		ArrayList<Model> models = new ObjectPreferenceLoader<ArrayList<Model>>(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
 		```
-	*	Remove:
+	*	Remove
 	
 		```java
 		new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).remove();
