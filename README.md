@@ -6,7 +6,7 @@ Android Object Preference Loader
 * Dependence:
 
 	```groovy
-	compile 'bz.tsung.android:objectify:1.0.0'
+	compile 'bz.tsung.android:objectify:1.0.1'
 	```
 	
 * Usage:
@@ -34,6 +34,14 @@ Android Object Preference Loader
 * Warning:
 	
 	**ObjectPreferenceLoader.clear(context) method will remove all preferences!**
+
+* Tips:
+	
+	In case u want to register type for gson, u can pass gson to constructor:
+	
+	```java
+	new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class, gson);
+	```
 		
 * Developer:
 	
