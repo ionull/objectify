@@ -13,12 +13,17 @@ public class ObjectPreferenceLoader<T> {
     StringPreferenceLoader stringPreferenceLoader;
     Type clazz;
     Context context;
-    final static Gson gson = new Gson();
+    Gson gson;
 
     public ObjectPreferenceLoader(Context context, final String key, Type clazz) {
+        this(context, key, clazz, new Gson());
+    }
+
+    public ObjectPreferenceLoader(Context context, final String key, Type clazz, Gson gson) {
         this.context = context;
         this.clazz = clazz;
         stringPreferenceLoader = new StringPreferenceLoader(context, key);
+        this.gson = gson;
     }
 
     public T load() throws NoSuchPreferenceFoundException {
