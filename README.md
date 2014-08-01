@@ -10,21 +10,31 @@ Android Object Preference Loader
 	```
 	
 * Usage:
-	1. Save
+	* Save
 	
 		```java
 		new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).save(model);
 		```
-	2. Load
+	* Load
 
 		```java
 		Model model = new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).load();
 		```
-	3. List
+	* List
 	
 		```java
 		ArrayList<Model> models = new ObjectPreferenceLoader<ArrayList<Model>>(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
 		```
+	*	Remove:
+	
+		```java
+		new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).remove();
+		```
+
+* Warning:
+	
+	**ObjectPreferenceLoader.clear(context) method will remove all preferences!**
 		
 * Developer:
+	
 	Tsung Wu(@ionull) <tsung.bz@gmail.com>
