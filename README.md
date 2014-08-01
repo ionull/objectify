@@ -6,7 +6,7 @@ Android Object Preference Loader
 * Dependence:
 
 	```groovy
-	compile 'bz.tsung.android:objectify:+'
+	compile 'bz.tsung.android:objectify:1.0.1'
 	```
 	
 * Usage:
