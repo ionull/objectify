@@ -9,24 +9,24 @@ import java.lang.reflect.Type;
 /**
  * Created by tsung on 3/18/14.
  */
-public class ObjectPreferenceLoader<T> {
+public class ObjectPreferenceLoader {
     StringPreferenceLoader stringPreferenceLoader;
     Type clazz;
     Context context;
     Gson gson;
 
-    public ObjectPreferenceLoader(Context context, final String key, Type clazz) {
+    public <T> ObjectPreferenceLoader(Context context, final String key, Class<T> clazz) {
         this(context, key, clazz, new Gson());
     }
 
-    public ObjectPreferenceLoader(Context context, final String key, Type clazz, Gson gson) {
+    public <T> ObjectPreferenceLoader(Context context, final String key, Class<T> clazz, Gson gson) {
         this.context = context;
         this.clazz = clazz;
         stringPreferenceLoader = new StringPreferenceLoader(context, key);
         this.gson = gson;
     }
 
-    public T load() throws NoSuchPreferenceFoundException {
+    public <T> T load() throws NoSuchPreferenceFoundException {
         String value = stringPreferenceLoader.load();
         try {
             return gson.fromJson(value, clazz);
@@ -35,8 +35,12 @@ public class ObjectPreferenceLoader<T> {
         }
     }
 
-    public void save(T value) {
-        stringPreferenceLoader.save(gson.toJson(value));
+    public <T> void save(T value) {
+        if (((Class)clazz).isInstance(value)) {
+            stringPreferenceLoader.save(gson.toJson(value));
+        } else {
+            throw new ShouldSaveSameTypeValueException();
+        }
     }
 
     public void remove() {
