@@ -6,29 +6,29 @@ Android Object Preference Loader
 * Dependence:
 
 	```groovy
-	compile 'bz.tsung.android:objectify:1.0.1'
+	compile 'bz.tsung.android:objectify:1.1.0'
 	```
 	
 * Usage:
 	* Save
 	
 		```java
-		new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).save(model);
+		new ObjectPreferenceLoader(context, keyOfPreference, Model.class).save(model);
 		```
 	* Load
 
 		```java
-		Model model = new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).load();
+		Model model = new ObjectPreferenceLoader(context, keyOfPreference, Model.class).load();
 		```
 	* List
 	
 		```java
-		ArrayList<Model> models = new ObjectPreferenceLoader<ArrayList<Model>>(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
+		ArrayList<Model> models = new ObjectPreferenceLoader(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
 		```
 	*	Remove
 	
 		```java
-		new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class).remove();
+		new ObjectPreferenceLoader(context, keyOfPreference, Model.class).remove();
 		```
 
 * Warning:
@@ -40,7 +40,7 @@ Android Object Preference Loader
 	In case u want to register type for gson, u can pass gson to constructor:
 	
 	```java
-	new ObjectPreferenceLoader<Model>(context, keyOfPreference, Model.class, gson);
+	new ObjectPreferenceLoader(context, keyOfPreference, Model.class, gson);
 	```
 		
 * Developer:
