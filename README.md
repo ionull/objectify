@@ -3,8 +3,8 @@ objectify
 
 Android Object Preference Loader
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.code-troopers.betterpickers/library.svg?style=flat)](https://repo1.maven.org/maven2/bz/tsung/android/objectify)
-[![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=1)
+[![Maven Central](https://img.shields.io/maven-central/v/bz.tsung.android/objectify.svg?style=flat)](https://repo1.maven.org/maven2/bz/tsung/android/objectify)
+[![API](https://img.shields.io/badge/API-1%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=1)
 
 * Dependence:
 
