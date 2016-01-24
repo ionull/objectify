@@ -22,13 +22,13 @@ public class PreferenceLoader {
 
     public void remove() {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        appSharedPrefs.edit().remove(getKey()).commit();
+        appSharedPrefs.edit().remove(getKey()).apply();
     }
 
     public static void clear(Context context) {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
         prefsEditor.clear();
-        prefsEditor.commit();
+        prefsEditor.apply();
     }
 }

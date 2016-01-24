@@ -23,7 +23,7 @@ public class BooleanPreferenceLoader extends PreferenceLoader {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
         prefsEditor.putBoolean(getKey(), value);
-        prefsEditor.commit();
+        prefsEditor.apply();
     }
 
 }

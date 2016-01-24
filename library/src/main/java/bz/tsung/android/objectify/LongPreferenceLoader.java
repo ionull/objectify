@@ -22,6 +22,6 @@ public class LongPreferenceLoader extends PreferenceLoader {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
         prefsEditor.putLong(getKey(), value);
-        prefsEditor.commit();
+        prefsEditor.apply();
     }
 }
