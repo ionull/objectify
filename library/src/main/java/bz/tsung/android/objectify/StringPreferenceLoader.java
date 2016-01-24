@@ -26,6 +26,6 @@ public class StringPreferenceLoader extends PreferenceLoader {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
         prefsEditor.putString(getKey(), value);
-        prefsEditor.commit();
+        prefsEditor.apply();
     }
 }
