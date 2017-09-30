@@ -13,6 +13,23 @@ public class StringPreferenceLoader extends PreferenceLoader {
         super(context, key);
     }
 
+    public String get() {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String value = appSharedPrefs.getString(getKey(), "");
+        if(TextUtils.isEmpty(value)) {
+            return null;
+        }
+        return value;
+    }
+
+    public void set(String value) {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        prefsEditor.putString(getKey(), value);
+        prefsEditor.apply();
+    }
+
+    @Deprecated
     public String load() throws NoSuchPreferenceFoundException {
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         String value = appSharedPrefs.getString(getKey(), "");
@@ -22,10 +39,8 @@ public class StringPreferenceLoader extends PreferenceLoader {
         return value;
     }
 
+    @Deprecated
     public void save(String value) {
-        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
-        prefsEditor.putString(getKey(), value);
-        prefsEditor.apply();
+        set(value);
     }
 }

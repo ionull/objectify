@@ -9,24 +9,24 @@ Android Object Preference Loader
 * Dependence:
 
 	```groovy
-	compile 'bz.tsung.android:objectify:1.1.3'
+	compile 'bz.tsung.android:objectify:2.0'
 	```
 	
 * Usage:
 	* Save
 	
 		```java
-		new ObjectPreferenceLoader(context, keyOfPreference, Model.class).save(model);
+		new ObjectPreferenceLoader(context, keyOfPreference, Model.class).set(model);
 		```
 	* Load
 
 		```java
-		Model model = new ObjectPreferenceLoader(context, keyOfPreference, Model.class).load();
+		Model model = new ObjectPreferenceLoader(context, keyOfPreference, Model.class).get();
 		```
 	* List
 	
 		```java
-		ArrayList<Model> models = new ObjectPreferenceLoader(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).load();
+		ArrayList<Model> models = new ObjectPreferenceLoader(context, keyOfPrefence, new TypeToken<ArrayList<Model>>(){}.getType()).get();
 		```
 	*	Remove
 	

@@ -37,6 +37,24 @@ public class ObjectPreferenceLoader {
         this.gson = gson;
     }
 
+    public <T> T get() {
+        try {
+            String value = stringPreferenceLoader.load();
+            return gson.fromJson(value, clazz);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public <T> void set(T value) {
+        if ((clazz instanceof Class && ((Class)clazz).isInstance(value)) || clazz instanceof Type) {
+            stringPreferenceLoader.save(gson.toJson(value));
+        } else {
+            throw new ShouldSaveSameTypeValueException();
+        }
+    }
+
+    @Deprecated
     public <T> T load() throws NoSuchPreferenceFoundException {
         String value = stringPreferenceLoader.load();
         try {
@@ -46,12 +64,9 @@ public class ObjectPreferenceLoader {
         }
     }
 
+    @Deprecated
     public <T> void save(T value) {
-        if ((clazz instanceof Class && ((Class)clazz).isInstance(value)) || clazz instanceof Type) {
-            stringPreferenceLoader.save(gson.toJson(value));
-        } else {
-            throw new ShouldSaveSameTypeValueException();
-        }
+        set(value);
     }
 
     public void remove() {
