@@ -1,12 +1,16 @@
-apply plugin: 'com.android.library'
+//apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdk 34
+    namespace "bz.tsung.android.objectify"
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 22
+        minSdkVersion 19
+        targetSdkVersion 34
         versionCode Integer.parseInt(VERSION_CODE)
         versionName VERSION_NAME
     }
@@ -16,20 +20,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
-    compile 'com.google.code.gson:gson:[2.1,)'
+    implementation 'com.google.code.gson:gson:[2.1,)'
+    implementation 'androidx.datastore:datastore-preferences:1.1.1'
 }
 
 apply from: 'gradle-mvn-push.gradle'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.adaptc.gradle:nexus-workflow:0.6'
-    }
-}
-apply plugin: 'nexus-workflow'
