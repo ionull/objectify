@@ -1,6 +1,5 @@
 package bz.tsung.android.objectify
 
-import android.content.Context
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -12,14 +11,12 @@ import java.lang.reflect.Type
 class ObjectPreferenceLoader {
     var stringPreferenceLoader: StringPreferenceLoader
     var clazz: Type
-    var context: Context
     var gson: Gson
 
     @JvmOverloads
-    constructor(context: Context, key: String, clazz: Type, gson: Gson = Gson()) {
-        this.context = context
+    constructor(key: String, clazz: Type, gson: Gson = Gson()) {
         this.clazz = clazz
-        stringPreferenceLoader = StringPreferenceLoader(context, key)
+        stringPreferenceLoader = StringPreferenceLoader(key)
         this.gson = gson
     }
 
@@ -60,8 +57,8 @@ class ObjectPreferenceLoader {
     }
 
     companion object {
-        fun clear(context: Context?) {
-            PreferenceLoader.clear(context)
+        fun clear() {
+            PreferenceLoader.clear()
         }
     }
 }
