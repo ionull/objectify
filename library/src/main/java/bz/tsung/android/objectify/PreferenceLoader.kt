@@ -21,8 +21,6 @@ import kotlinx.coroutines.runBlocking
 abstract class PreferenceLoader<T>(val key: String) {
     abstract val dataStoreKey: Preferences.Key<T>
 
-    //private val dataStore get() = context.applicationContext.dataStore
-
     fun get(): T? {
         return runBlocking {
             dataStore.data.map { it[dataStoreKey] }.firstOrNull()
@@ -54,9 +52,11 @@ abstract class PreferenceLoader<T>(val key: String) {
     }
 
     companion object {
-        private const val DEFAULT_STORE_NAME = "settings"
-        var storeName = DEFAULT_STORE_NAME
         lateinit var context: Context
+
+        const val DEFAULT_STORE_NAME = "settings"
+        private var storeName = DEFAULT_STORE_NAME
+
         val dataStore by lazy {
             val p = preferencesDataStore(name = storeName, produceMigrations = ::sharedPreferencesMigration)
             p.getValue(context, Context::javaClass)
