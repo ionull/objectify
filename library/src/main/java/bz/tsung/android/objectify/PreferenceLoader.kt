@@ -37,7 +37,7 @@ abstract class PreferenceLoader<T>(val key: String) {
 
     fun set(value: T) {
         CoroutineScope(Dispatchers.IO).launch {
-            dataStore.edit { it[dataStoreKey] = value }
+            setSuspend(value)
         }
     }
 
