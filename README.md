@@ -38,7 +38,7 @@ Android Object Preference Loader
       * List
 	
           ```kotlin
-            val models: ArrayList<Model> = ObjectPreferenceLoader(keyOfPreference, object : TypeToken<ArrayList<Model>>() {}.type).get()
+          val models: ArrayList<Model> = ObjectPreferenceLoader(keyOfPreference, object : TypeToken<ArrayList<Model>>() {}.type).get()
           ```
       * Remove
 	
