@@ -18,9 +18,9 @@ Android Object Preference Loader
 * Usage:
 	* Init
 
-		  ```kotlin
-		  PreferenceLoader.init(context = context, keysToMigrate = setOf(key1, key2), migrateAll = false, storeName = "awesome_app")
-		  ```
+	  ```kotlin
+      PreferenceLoader.init(context = context, keysToMigrate = setOf(key1, key2), migrateAll = false, storeName = "awesome_app")
+      ```
 	* Save
 	
 		```kotlin
