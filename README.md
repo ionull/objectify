@@ -15,32 +15,36 @@ Android Object Preference Loader
 	compile 'bz.tsung.android:objectify:3.0'
 	```
 	
-* Usage:
-	* Init
+  * Usage:
+      * Init
 
-	  ```kotlin
-      PreferenceLoader.init(context = context, keysToMigrate = setOf(key1, key2), migrateAll = false, storeName = "awesome_app")
-      ```
-	* Save
+        ```kotlin
+        PreferenceLoader.init(
+     		context = context, 
+        	keysToMigrate = setOf(key1, key2), 
+        	migrateAll = false, 
+        	storeName = "awesome_app")
+        ```
+      * Save
 	
-		```kotlin
-		ObjectPreferenceLoader(keyOfPreference, Model::class.java).set(model)
-		```
-	* Load
+          ```kotlin
+          ObjectPreferenceLoader(keyOfPreference, Model::class.java).set(model)
+          ```
+      * Load
 
-		```kotlin
-		val model: Model = ObjectPreferenceLoader(keyOfPreference, Model::class.java).get()
-		```
-	* List
+          ```kotlin
+          val model: Model = ObjectPreferenceLoader(keyOfPreference, Model::class.java).get()
+          ```
+      * List
 	
-		```kotlin
-  		val models: ArrayList<Model> = ObjectPreferenceLoader(keyOfPreference, object : TypeToken<ArrayList<Model>>() {}.type).get()
-		```
-	* Remove
+          ```kotlin
+            val models: ArrayList<Model> = ObjectPreferenceLoader(keyOfPreference, object : TypeToken<ArrayList<Model>>() {}.type).get()
+          ```
+      * Remove
 	
-		```kotlin
-		IntPreferenceLoader(keyOfPreference).remove()
-		```
+          ```kotlin
+          IntPreferenceLoader(keyOfPreference).remove()
+          ```
 
 * Warning:
 	
