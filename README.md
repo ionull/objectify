@@ -4,7 +4,7 @@ objectify
 Android Object Preference Loader
 
 [![Maven Central](https://img.shields.io/maven-central/v/bz.tsung.android/objectify.svg?style=flat)](https://repo1.maven.org/maven2/bz/tsung/android/objectify)
-[![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9)
+[![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
 * What's new in 3.0
 	Replace (migrate) shared preferences with datastore preferences
