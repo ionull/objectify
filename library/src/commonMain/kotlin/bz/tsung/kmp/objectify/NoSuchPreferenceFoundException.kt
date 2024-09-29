@@ -1,3 +1,3 @@
-package bz.tsung.android.objectify
+package bz.tsung.kmp.objectify
 
 class NoSuchPreferenceFoundException: Exception()

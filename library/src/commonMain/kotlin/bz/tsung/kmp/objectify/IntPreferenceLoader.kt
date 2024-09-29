@@ -1,4 +1,4 @@
-package bz.tsung.android.objectify
+package bz.tsung.kmp.objectify
 
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.intPreferencesKey

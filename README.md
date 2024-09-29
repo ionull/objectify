@@ -1,28 +1,37 @@
 objectify
 =========
 
-Android Object Preference Loader
+KMP Object Preference Loader
 
-[![Maven Central](https://img.shields.io/maven-central/v/bz.tsung.android/objectify.svg?style=flat)](https://repo1.maven.org/maven2/bz/tsung/android/objectify)
+[![Maven Central](https://img.shields.io/maven-central/v/bz.tsung.kmp/objectify.svg?style=flat)](https://repo1.maven.org/maven2/bz/tsung/kmp/objectify)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
+* What's new in 3.1.1
+    Objectify now works both on Android and JVM project.
+
 * What's new in 3.0
-	Replace (migrate) shared preferences with datastore preferences
+	Replace (migrate) shared preferences with datastore preferences.
 
 * Dependence:
 
 	```groovy
-	compile 'bz.tsung.android:objectify:3.0'
+	compile 'bz.tsung.kmp:objectify:3.1.1'
 	```
 	
   * Usage:
       * Init
 
         ```kotlin
-        PreferenceLoader.init(
-     		context = context, 
+        // for android
+        AndroidObjectify.init(
+        	context = context, 
         	keysToMigrate = setOf(key1, key2), 
         	migrateAll = false, 
+        	storeName = "awesome_app")
+        
+        // for jvm
+        JvmObjectify.init(
+        	storePath = "/my/path/to/settings",
         	storeName = "awesome_app")
         ```
       * Save

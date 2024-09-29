@@ -1,4 +1,4 @@
-package bz.tsung.android.objectify
+package bz.tsung.kmp.objectify
 
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
