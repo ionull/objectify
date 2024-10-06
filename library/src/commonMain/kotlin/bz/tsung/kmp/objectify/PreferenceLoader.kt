@@ -43,8 +43,12 @@ abstract class PreferenceLoader<T>(val key: String) {
 
     fun remove() {
         CoroutineScope(Dispatchers.IO).launch {
-            dataStore.edit { it.remove(dataStoreKey) }
+            removeSuspend()
         }
+    }
+
+    suspend fun removeSuspend() {
+        dataStore.edit { it.remove(dataStoreKey) }
     }
 
     companion object {
@@ -52,11 +56,6 @@ abstract class PreferenceLoader<T>(val key: String) {
         var storeName = DEFAULT_STORE_NAME
 
         lateinit var dataStore: DataStore<Preferences>
-        /*
-        val dataStore by lazy {
-            createDataStore()
-        }
-         */
 
         val keysToMigrate = mutableSetOf<String>()
         var migrateAll = false
