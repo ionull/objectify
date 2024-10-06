@@ -56,6 +56,10 @@ class ObjectPreferenceLoader {
         stringPreferenceLoader.remove()
     }
 
+    suspend fun removeSuspend() {
+        stringPreferenceLoader.removeSuspend()
+    }
+
     companion object {
         fun clear() {
             PreferenceLoader.clear()

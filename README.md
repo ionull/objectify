@@ -15,7 +15,7 @@ KMP Object Preference Loader
 * Dependence:
 
 	```groovy
-	compile 'bz.tsung.kmp:objectify:3.1.2'
+	compile 'bz.tsung.kmp:objectify:3.1.3'
 	```
 	
 * Usage:
