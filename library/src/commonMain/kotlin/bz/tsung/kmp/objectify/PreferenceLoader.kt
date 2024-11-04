@@ -19,7 +19,7 @@ abstract class PreferenceLoader<T>(val key: String) {
 
     fun get(): T? {
         return runBlocking {
-            dataStore.data.map { it[dataStoreKey] }.firstOrNull()
+            flow().firstOrNull()
         }
     }
 
@@ -32,7 +32,7 @@ abstract class PreferenceLoader<T>(val key: String) {
     }
 
     fun set(value: T) {
-        CoroutineScope(Dispatchers.IO).launch {
+        runBlocking {
             setSuspend(value)
         }
     }
