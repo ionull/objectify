@@ -1,8 +1,10 @@
 package bz.tsung.kmp.objectify
 
 import androidx.datastore.core.DataStore
+import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.emptyPreferences
 import bz.tsung.kmp.objectify.PreferenceLoader.Companion.DEFAULT_STORE_NAME
 import bz.tsung.kmp.objectify.PreferenceLoader.Companion.storeName
 import java.io.File
@@ -20,6 +22,9 @@ object JvmObjectify {
     }
 
     private fun createDataStore(): DataStore<Preferences> {
-        return PreferenceDataStoreFactory.create(produceFile = { File(_storePath, "$storeName.preferences_pb") })
+        return PreferenceDataStoreFactory.create(
+            produceFile = { File(_storePath, "$storeName.preferences_pb") },
+            corruptionHandler = ReplaceFileCorruptionHandler { emptyPreferences() }
+        )
     }
 }

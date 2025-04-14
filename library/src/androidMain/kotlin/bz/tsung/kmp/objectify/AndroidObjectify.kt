@@ -5,8 +5,10 @@ import android.content.Context
 import android.preference.PreferenceManager
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
+import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import androidx.datastore.preferences.SharedPreferencesMigration
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStore
 import bz.tsung.kmp.objectify.PreferenceLoader.Companion.DEFAULT_STORE_NAME
 import bz.tsung.kmp.objectify.PreferenceLoader.Companion.keysToMigrate
@@ -38,7 +40,11 @@ object AndroidObjectify {
     }
 
     private fun createDataStore(): DataStore<Preferences> {
-        val p = preferencesDataStore(name = storeName, produceMigrations = ::sharedPreferencesMigration)
+        val p = preferencesDataStore(
+            name = storeName,
+            produceMigrations = ::sharedPreferencesMigration,
+            corruptionHandler = ReplaceFileCorruptionHandler { emptyPreferences() }
+        )
         return p.getValue(_context, Context::javaClass)
     }
 }
